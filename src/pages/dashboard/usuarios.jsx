@@ -438,8 +438,10 @@ export function Usuarios() {
 </Dialog>
 
 <Dialog open={detailsOpen} handler={handleDetailsOpen} className="max-w-xs w-11/12" size="xs">
-  <DialogHeader className="text-xxl font-bold text-gray-800">Detalles del Usuario</DialogHeader>
-  <DialogBody>
+<DialogHeader className="font-bold text-gray-900">
+<Typography variant="h4">Detalles del Usuario</Typography>
+    </DialogHeader>
+    <DialogBody divider className="p-4">
     <div className="space-y-1">
       <Typography variant="subtitle2" className="font-bold text-gray-800">Nombre:</Typography>
       <Typography className="text-sm">{selectedUser.nombre}</Typography>

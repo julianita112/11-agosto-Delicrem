@@ -522,10 +522,12 @@ export function Proveedores() {
       </Dialog>
 
       <Dialog open={detailsOpen} handler={handleDetailsOpen} className="max-w-xs w-11/12" size="xs">
-        <DialogHeader className="text-xxl font-bold text-gray-800">
-          Detalles del Proveedor
+        <DialogHeader className="font-bold text-gray-900">
+        <Typography variant="h4" className="font-semibold">
+            Detalles del Proveedor
+        </Typography>
         </DialogHeader>
-        <DialogBody>
+        <DialogBody divider className="overflow-auto max-h-[60vh] p-4 bg-white">
           <div className="space-y-1">
             <Typography variant="subtitle2" className="font-bold text-gray-800">Nombre:</Typography>
             <Typography className="text-sm">{selectedProveedor.nombre}</Typography>

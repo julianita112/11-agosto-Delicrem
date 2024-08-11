@@ -375,8 +375,8 @@ import {
             Lista de Compras
         </Typography>
         <div className="overflow-x-auto">
-            <table className="min-w-full bg-white">
-                <thead>
+        <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
                     <tr>
                         <th className="py-2 px-4 bg-gray-200">Proveedor</th>
                         <th className="py-2 px-4 bg-gray-200">Fecha de Compra</th>
@@ -631,18 +631,18 @@ import {
             </Dialog>
   
             <Dialog open={detailsOpen} handler={handleDetailsOpen} className="overflow-auto max-h-[90vh] rounded-lg shadow-lg border border-gray-200">
-    <DialogHeader className="bg-gray-100 text-gray-800 p-4 rounded-t-lg border-b border-gray-300">
+    <DialogHeader className="font-bold text-gray-900">
         <Typography variant="h4" className="font-semibold">
             Detalles de la Compra
         </Typography>
     </DialogHeader>
     <DialogBody divider className="overflow-auto max-h-[60vh] p-4 bg-white">
         {selectedCompra.proveedorCompra && (
-            <div className="mb-6">
-                <Typography variant="h5" color="blue-gray" className="mb-3">
+            <div className="mb-2">
+                <Typography variant="h5" color="blue-gray" className="mb-1">
                     Información del Proveedor
                 </Typography>
-                <table className="min-w-full border-separate border-spacing-2 border-gray-300">
+                <table className="min-w-full border-separate border-spacing-1 border-gray-300">
                     <tbody>
                         <tr className="border-b border-gray-300">
                             <td className="font-semibold px-4 py-2">ID Proveedor:</td>
@@ -735,8 +735,6 @@ import {
         </Button>
     </DialogFooter>
 </Dialog>
-
-
         </>
     );
   }

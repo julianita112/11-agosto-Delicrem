@@ -407,8 +407,8 @@ export function CategoriaInsumos() {
       </Dialog>
 
       <Dialog open={detailsOpen} handler={handleDetailsOpen} className="max-w-xs w-11/12" size="xs">
-        <DialogHeader className="text-xxl font-bold text-gray-800">
-          Detalles de la Categoría
+        <DialogHeader className="font-bold text-gray-900">
+          Detalles de la Categoría de Insumos
         </DialogHeader>
         <DialogBody>
           <div className="space-y-2">

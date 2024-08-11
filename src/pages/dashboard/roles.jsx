@@ -339,26 +339,53 @@ export function Roles() {
         </DialogFooter>
       </Dialog>
 
-      <Dialog open={detailsOpen} handler={handleDetailsOpen} className="max-w-xs w-11/12" size="xs" >
-        <DialogHeader>Detalles del Rol</DialogHeader>
-        <DialogBody divider>
-          <Typography variant="h6" color="blue-gray" className="mb-2">
-            Nombre:
-          </Typography>
-          <Typography>{selectedRole.nombre}</Typography>
-          <Typography variant="h6" color="blue-gray" className="mt-4 mb-2">
-            Permisos:
-          </Typography>
-          <Typography>
-            {(selectedRole.permisosRol ? selectedRole.permisosRol : []).map(p => p.nombre_permiso).join(', ')}
-          </Typography>
-        </DialogBody>
-        <DialogFooter>
-          <Button variant="text" className="btncancelarm" size="sm" onClick={handleDetailsOpen}>
-            Cerrar
-          </Button>
-        </DialogFooter>
-      </Dialog>
+      <Dialog open={detailsOpen} handler={handleDetailsOpen} className="max-w-xs w-11/12" size="sm">
+  <DialogHeader className="font-bold text-gray-900">
+    <Typography variant="h4">Detalles del Rol</Typography>
+  </DialogHeader>
+  <DialogBody divider className="p-4">
+    <div className="mb-4">
+      <Typography variant="h6" color="blue-gray" className="font-semibold mb-2">
+        Nombre:
+      </Typography>
+      <Typography className="text-gray-800">
+        {selectedRole.nombre}
+      </Typography>
+    </div>
+    <div>
+  <Typography variant="h6" color="blue-gray" className="font-semibold mb-2">
+    Permisos:
+  </Typography>
+  <div className="overflow-x-auto">
+    <table className="w-full border border-gray-300 rounded-md">
+      <tbody>
+        {selectedRole.permisosRol && (
+          [...Array(Math.ceil(selectedRole.permisosRol.length / 3))].map((_, rowIndex) => (
+            <tr key={rowIndex} className="text-center">
+              {[0, 1, 2].map(colIndex => {
+                const permiso = selectedRole.permisosRol[rowIndex * 3 + colIndex];
+                return (
+                  <td key={colIndex} className="px-2 py-1 text-sm border-t border-gray-200">
+                    {permiso ? permiso.nombre_permiso : ''}
+                  </td>
+                );
+              })}
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </DialogBody>
+  <DialogFooter className="bg-white p-4 rounded-b-lg">
+    <Button className="btncancelarm" size="sm"  onClick={handleDetailsOpen}>
+      Cerrar
+    </Button>
+  </DialogFooter>
+</Dialog>
+
     </>
   );
 }
